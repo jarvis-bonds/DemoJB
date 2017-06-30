@@ -1,0 +1,64 @@
+<html ng-app="DemoJB">
+<head>
+    <title>Jay Matthew's Car Dealership</title>
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" /> 
+    <link href="~/bower_components/angular-material/angular-material.css" rel="stylesheet" />   
+    <link href="~/css/dealership.css" rel="stylesheet" />
+    <base href="/" />
+</head>
+<body >
+    <!-- Navigation header -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#adminMenu">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/dealership">
+                Jay Matthew's Dealership
+            </a>
+            <div class="collapse navbar-collapse" id="adminMenu">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{active: isActive('Locations')}">
+                        <a href="/dealership">Dealership</a>
+                    </li>
+                    <li ng-class="{active: isActive('Sites')}">
+                        <a href="/about">
+                            Custom 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <hr />
+
+    <div>
+        <ui-view></ui-view>
+    </div>
+   
+
+    <!-- Library Files -->
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="~/bower_components/angular-material/angular-material.js"></script>
+    <script src="~/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="~/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-touch/angular-touch.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!-- App Files-->
+    <script src="/ngapp/app.js"></script>
+    <script src="/ngapp/controllers/controllers.js"></script>
+    <script src="/ngapp/services/services.js"></script>
+
+
+</body>
+</html>

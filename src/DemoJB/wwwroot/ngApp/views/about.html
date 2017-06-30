@@ -1,0 +1,107 @@
+
+
+    <div class="container-fluid">
+        <h1>Custom Cars</h1>
+        <div ng-show="controller.view=='list'">
+            <div class="row">
+                <div class="col-sm-12">
+                    <button class="btn btn-primary btn-lg"
+                            ng-click="controller.startAdd()">
+                        Add New Custom Vehicle
+                    </button>
+                </div>
+            </div>
+            <h2>List of Custom Cars</h2>
+            <div class="row" ng-repeat="custom in controller.customs"
+                 ng-class-odd="'oddRow'"
+                 ng-class-even="'evenRow'">
+                <div class="col-sm-8">
+                    <h4>{{custom}}</h4>
+                </div>
+                <div class="col-sm-4" style="margin-top: 5px;">
+                    <div class="pull-right">
+                        <button class="btn btn-warning btn-sm"
+                                ng-click="controller.startEdit($index)">
+                            Edit
+                        </button>
+                        <button class="btn btn-danger btn-sm"
+                                ng-click="controller.startRemove($index)">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="controller.view=='add'">
+            <h3>Specify the name of the Custom Car:</h3>
+            <div class="row">
+                <div class="col-sm-6">
+                    <input class="form-control input-lg" type="text"
+                           placeholder="Custom Vehicle Name"
+                           ng-model="controller.customBox" />
+                </div>
+            </div>
+            <div class="row" style="margin-top: 12px;">
+                <div class="col-sm-6">
+                    <button class="btn btn-success btn"
+                            ng-disabled="controller.customBox==''"
+                            ng-click="controller.add()">
+                        Add
+                    </button>
+                    <button class="btn btn-warning btn"
+                            ng-click="controller.cancel()">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+
+  <div ng-show="controller.view=='edit'">
+      <h3>Edit Name of your Custom Car</h3>
+      <div class="row">
+          <div class="col-sm-6">
+              <input class="form-control input-lg" type="text"
+                     placeholder="Site Name"
+                     ng-model="controller.customBox" />
+          </div>
+      </div>
+      <div class="row" style="margin-top: 12px;">
+          <div class="col-sm-6">
+              <button class="btn btn-success btn"
+                      ng-disabled="controller.customBox==''"
+                      ng-click="controller.save()">
+                  Save
+              </button>
+              <button class="btn btn-warning btn"
+                      ng-click="controller.cancel()">
+                  Cancel
+              </button>
+          </div>
+      </div>
+  </div>
+
+    <div ng-show="controller.view=='delete'">
+        <h3>Confirm Deletion</h3>
+        <div class="row">
+            <div class="col-sm-8">
+                <p>
+                    Are you sure you want to delete Dive
+                    Site '{{controller.getSelected()}}'?
+                </p>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 12px;">
+            <div class="col-sm-6">
+                <button class="btn btn-success btn"
+                        ng-click="controller.cancel()">
+                    No
+                </button>
+                <button class="btn btn-danger btn"
+                        ng-click="controller.remove()">
+                    Yes
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

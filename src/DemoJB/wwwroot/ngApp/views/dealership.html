@@ -1,0 +1,44 @@
+﻿
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+            <h1>List of Dealer Vehicles</h1>
+            <nav>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <h4>Search Vehicles</h4>
+                        <input class="input-lg" type="text"
+                               placeholder="Search for Vehicles"
+                               ng-model="search" />
+                    </div>
+                    <div class="col-sm-1">
+                        <div class="pull-right">
+                        <h4>Car Makes</h4>
+                        <select ng-options="make as make.name for make in controller.makes track by make.id"
+                                ng-model="selected"
+                                style="width: 150px; height: 30px;">
+                        </select>
+                        </div>
+                    </div>
+                </div>
+              </nav>
+            </div>
+         </div>
+        <br />
+
+    <div class="container">
+        <div ng-repeat="car in controller.cars | filter: {shortDescritption: search, carMakeId: selected.id}"
+             ng-class-odd="'oddRow'"
+             ng-class-even="'evenRow'"
+             ng-click="controller.showModal($index)"
+             ng-mouseenter="hasMouse = true"
+             ng-mouseleave="hasMouse = false"
+             ng-class="{'highlight': hasMouse">
+            <div class="flex">
+                <img ng-src="{{car.imageUrl}}" width="400"/>
+                {{car.shortDescription}}
+            </div>
+          </div>
+        </div>
+      </div>
+   
